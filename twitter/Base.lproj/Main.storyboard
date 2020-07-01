@@ -164,11 +164,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="lHf-73-RqI">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="lHf-73-RqI" customClass="ComposeViewContoller">
                                 <rect key="frame" x="0.0" y="44" width="375" height="198"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                <mutableString key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</mutableString>
                                 <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -178,12 +177,19 @@
                         <viewLayoutGuide key="safeArea" id="CQq-nM-GzU"/>
                     </view>
                     <navigationItem key="navigationItem" id="Gb3-J1-v9W">
-                        <barButtonItem key="leftBarButtonItem" title="Item" image="close-icon" id="Wa1-6z-A2Z"/>
-                        <barButtonItem key="rightBarButtonItem" title="Tweet" id="wqw-X4-4Eo"/>
+                        <barButtonItem key="leftBarButtonItem" title="Close" image="close-icon" id="Wa1-6z-A2Z">
+                            <connections>
+                                <action selector="closeButton:" destination="uBw-4X-SoD" id="u23-9T-J3K"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Tweet" id="wqw-X4-4Eo">
+                            <connections>
+                                <action selector="tweetButton:" destination="uBw-4X-SoD" id="Xo2-St-RxL"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="closeButton" destination="Wa1-6z-A2Z" id="RN8-2n-kpg"/>
-                        <outlet property="tweetButton" destination="wqw-X4-4Eo" id="vFo-Tv-scG"/>
+                        <outlet property="tweetTextView" destination="lHf-73-RqI" id="X5P-1N-Iay"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UTp-gx-4wz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

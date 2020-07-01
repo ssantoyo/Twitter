@@ -7,8 +7,14 @@
 //
 
 #import "ComposeViewController.h"
+#import "AppDelegate.h"
+#import "APIManager.h"
+#import "TweetCellTableViewCell.h"
 
 @interface ComposeViewController ()
+
+
+@property (weak, nonatomic) IBOutlet UITextView *tweetTextView;
 
 @end
 
@@ -18,6 +24,30 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
 }
+- (IBAction)closeButton:(id)sender {
+    [self dismissViewControllerAnimated:true completion:nil];
+}
+
+
+- (IBAction)tweetButton:(id)sender {
+    [[APIManager shared]postStatusWithText:_tweetTextView.text completion:^(Tweet *tweet, NSError *error) {
+        if(error){
+            NSLog(@"Error composing Tweet: %@", error.localizedDescription);
+        }
+        else{
+            [self.delegate didTweet:tweet];
+            NSLog(@"Compose Tweet Success!");
+            [self dismissViewControllerAnimated:true completion:nil];
+        }
+    }];
+}
+
+
+
+
+
+
+
 
 /*
 #pragma mark - Navigation
