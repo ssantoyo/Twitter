@@ -12,6 +12,15 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface User : NSObject
 
+// MARK: properties
+@property (nonatomic, strong) NSString *name;
+@property (nonatomic, strong) NSString *screenName;
+
+// MARK: initializer
+
+- (instancetype)initWithDictionary:(NSDictionary *)dictionary;
+
+
 @end
 
 NS_ASSUME_NONNULL_END

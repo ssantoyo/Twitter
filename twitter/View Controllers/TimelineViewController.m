@@ -7,9 +7,15 @@
 //
 
 #import "TimelineViewController.h"
+#import "TweetCellTableViewCell.h"
+#import "Tweet.h"
 #import "APIManager.h"
 
-@interface TimelineViewController ()
+@interface TimelineViewController () <UITableViewDataSource, UITableViewDelegate>
+
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (nonatomic, strong) NSMutableArray *tweets;
+@property (nonatomic, strong) UIRefreshControl *refreshControl;
 
 @end
 
@@ -18,19 +24,40 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    // Get timeline
+    self.tableView.dataSource = self;
+    self.tableView.delegate = self;
+    
+    self.tableView.rowHeight = 170;
+    
+    [self getTimeline];
+   
+    self.refreshControl = [[UIRefreshControl alloc] init];
+    [self.refreshControl addTarget:self action:@selector(getTimeline) forControlEvents:UIControlEventValueChanged];
+    [self.tableView insertSubview:self.refreshControl atIndex:0];
+}
+
+
+-(void)getTimeline{
+    //getTimeline
     [[APIManager shared] getHomeTimelineWithCompletion:^(NSArray *tweets, NSError *error) {
         if (tweets) {
             NSLog(@"😎😎😎 Successfully loaded home timeline");
-            for (NSDictionary *dictionary in tweets) {
-                NSString *text = dictionary[@"text"];
+            self.tweets = (NSMutableArray *)tweets;
+            for (Tweet *tweet in tweets) {
+                NSString *text = tweet.text;
                 NSLog(@"%@", text);
             }
+            [self.tableView reloadData];
+
         } else {
             NSLog(@"😫😫😫 Error getting home timeline: %@", error.localizedDescription);
         }
+        [self.refreshControl endRefreshing];
     }];
+    
 }
+
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -46,6 +73,24 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+
+- (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
+    TweetCellTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"TweetCell" forIndexPath:indexPath];
+    
+    Tweet *tweet = self.tweets[indexPath.row];
+    
+    cell.authorLabel.text = tweet.user.name;
+    cell.tweetLabel.text = tweet.text;
+    
+    
+    return cell;
+}
+
+- (NSInteger)tableView:(nonnull UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return self.tweets.count;
+}
+
 
 
 @end

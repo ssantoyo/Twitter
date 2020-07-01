@@ -10,4 +10,17 @@
 
 @implementation User
 
+- (instancetype)initWithDictionary:(NSDictionary *)dictionary {
+    self = [super init];
+    if (self) {
+        self.name = dictionary[@"name"];
+        self.screenName = dictionary[@"screen_name"];
+        
+        // TODO: MISSING PROPERTIES
+        
+      // Initialize any other properties
+    }
+    return self;
+}
+
 @end
