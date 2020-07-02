@@ -143,8 +143,8 @@
 				6AD2790520BCC0380085BC29 /* LoginViewController.m */,
 				6AD2790720BCC04D0085BC29 /* TimelineViewController.h */,
 				6AD2790820BCC04D0085BC29 /* TimelineViewController.m */,
-				8D7BC3E024AD2ABA00A49C03 /* ComposeViewController.h */,
 				8D7BC3E124AD2ABA00A49C03 /* ComposeViewController.m */,
+				8D7BC3E024AD2ABA00A49C03 /* ComposeViewController.h */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";

@@ -85,8 +85,13 @@
     Tweet *tweet = self.tweets[indexPath.row];
     
     cell.authorLabel.text = tweet.user.name;
+    cell.dateLabel.text = tweet.createdAtString;
     cell.tweetLabel.text = tweet.text;
     
+    cell.tweet = tweet;
+    
+    //[cell.favoriteButton setTitle:[NSString stringWithFormat:@"%i", cell.tweet.retweetCount] forState:UIControlStateNormal];
+    [cell refreshData];
     
     return cell;
 }
