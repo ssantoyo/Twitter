@@ -8,6 +8,7 @@
 
 #import "Tweet.h"
 #import "User.h"
+#import "NSDate+TimeAgo.h"
 
 @implementation Tweet
 
@@ -36,6 +37,7 @@
         NSDictionary *user = dictionary[@"user"];
         self.user = [[User alloc] initWithDictionary:user];
         // TODO: Format and set createdAtString
+        
         // Format createdAt date string
         NSString *createdAtOriginalString = dictionary[@"created_at"];
         NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
@@ -48,6 +50,9 @@
         formatter.timeStyle = NSDateFormatterNoStyle;
         // Convert Date to String
         self.createdAtString = [formatter stringFromDate:date];
+       // NSString *ago = [date timeAgo];
+        //[date timeAgoSinceNow];
+        
     }
     return self;
 }
@@ -60,7 +65,5 @@
     }
     return tweets;
 }
-
-
 
 @end
