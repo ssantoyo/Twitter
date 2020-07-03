@@ -49,8 +49,10 @@
         formatter.dateStyle = NSDateFormatterShortStyle;
         formatter.timeStyle = NSDateFormatterNoStyle;
         // Convert Date to String
-        self.createdAtString = [formatter stringFromDate:date];
-       // NSString *ago = [date timeAgo];
+        
+        
+        NSString *ago = [date timeAgo];
+        self.createdAtString = ago;
         //[date timeAgoSinceNow];
         
     }
