@@ -15,7 +15,7 @@
     if (self) {
         self.name = dictionary[@"name"];
         self.screenName = dictionary[@"screen_name"];
-        
+        self.profilePicture = dictionary[@"profile_image_url_https"];
         // TODO: MISSING PROPERTIES
         
       // Initialize any other properties

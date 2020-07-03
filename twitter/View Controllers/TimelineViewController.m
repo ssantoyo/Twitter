@@ -13,6 +13,7 @@
 #import "AppDelegate.h"
 #import "LoginViewController.h"
 #import "ComposeViewController.h"
+#import "UIImageView+AFNetworking.h"
 
 @interface TimelineViewController () <ComposeViewControllerDelegate, UITableViewDataSource, UITableViewDelegate>
 
@@ -30,7 +31,7 @@
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
     
-    self.tableView.rowHeight = 170;
+    //self.tableView.rowHeight = 170;
     
     [self getTimeline];
    
@@ -84,9 +85,14 @@
     
     Tweet *tweet = self.tweets[indexPath.row];
     
-    cell.authorLabel.text = tweet.user.name;
-    cell.dateLabel.text = tweet.createdAtString;
-    cell.tweetLabel.text = tweet.text;
+    NSString *handle = tweet.user.screenName;
+    NSString *fullHandle = [@"@" stringByAppendingString:handle];
+    cell.handleLabel.text = fullHandle;
+    
+    NSURL *propicURL = [NSURL URLWithString:tweet.user.profilePicture];
+    [cell.profileImage setImageWithURL:propicURL];
+    
+    
     
     cell.tweet = tweet;
     
@@ -102,5 +108,17 @@
 
 - (void)didTweet:(nonnull Tweet *)tweet { 
     [self.tableView reloadData];  }
+
+- (IBAction)didLogout:(id)sender {
+    AppDelegate *appDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
+        
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    LoginViewController *loginViewController = [storyboard instantiateViewControllerWithIdentifier:@"LoginViewController"];
+    appDelegate.window.rootViewController = loginViewController;
+    
+    [[APIManager shared] logout];
+}
+
+
 
 @end
