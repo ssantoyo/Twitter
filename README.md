@@ -19,7 +19,7 @@ The following **required** functionality is completed:
 - [x] User can compose a new tweet by tapping on a compose button.
 - [x] Using AutoLayout, the Tweet cell should adjust its layout for iPhone 11, Pro and SE device sizes as well as accommodate device rotation.
 - [x] User should display the relative timestamp for each tweet "8m", "7h"
-- [] Tweet Details Page: User can tap on a tweet to view it, with controls to retweet, favorite, and reply.
+- [x] Tweet Details Page: User can tap on a tweet to view it, with controls to retweet, favorite, and reply.
 
 The following **stretch** features are implemented:
 
@@ -58,6 +58,8 @@ Here's a walkthrough of implemented user stories:
 <img src='http://g.recordit.co/t8opJmLEui.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 <img src='http://g.recordit.co/Ec3mdPACW9.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 <img src='http://g.recordit.co/IhzkH55Dxw.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<img src='http://g.recordit.co/FkU8VzzHwE.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+
 
 
 GIF created with Recordit.
@@ -65,6 +67,7 @@ GIF created with Recordit.
 ## Notes
 
 Describe any challenges encountered while building the app.
+1. I would say the biggest challenge for me was getting the favorite and retweeting to work. They would at times not display their integer value which had to be fixed but ultimately got resolved
 
 ## Credits
 
