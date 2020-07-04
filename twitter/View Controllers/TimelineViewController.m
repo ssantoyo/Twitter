@@ -14,6 +14,7 @@
 #import "LoginViewController.h"
 #import "ComposeViewController.h"
 #import "UIImageView+AFNetworking.h"
+#import "DetailsViewController.h"
 
 @interface TimelineViewController () <ComposeViewControllerDelegate, UITableViewDataSource, UITableViewDelegate>
 
@@ -73,10 +74,21 @@
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([[segue identifier] isEqualToString:@"ComposeView"]) {
     UINavigationController *navigationController = [segue destinationViewController];
     ComposeViewController *composeController = (ComposeViewController*)navigationController.topViewController;
     composeController.delegate = self;
+    } else if ([[segue identifier] isEqualToString:@"DetailsView"]) {
+        DetailsViewController *detailsPostViewController = [segue destinationViewController];
+        UITableViewCell *tappedCell = sender;
+        NSIndexPath *indexPath = [self.tableView indexPathForCell:tappedCell];
+        Tweet *tweet = self.tweets[indexPath.row];
+        detailsPostViewController.tweet = tweet;
+    }
 }
+
+
+
 
 
 
@@ -106,8 +118,8 @@
     return self.tweets.count;
 }
 
-- (void)didTweet:(nonnull Tweet *)tweet { 
-    [self.tableView reloadData];  }
+- (void)didTweet:(nonnull Tweet *)tweet {
+    [self.tableView reloadData];}
 
 - (IBAction)didLogout:(id)sender {
     AppDelegate *appDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;

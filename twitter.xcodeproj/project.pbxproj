@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -21,6 +21,7 @@
 		8D7BC3D924AA846900A49C03 /* Tweet.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D7BC3D824AA846900A49C03 /* Tweet.m */; };
 		8D7BC3DC24AA916400A49C03 /* TweetCellTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D7BC3DB24AA916400A49C03 /* TweetCellTableViewCell.m */; };
 		8D7BC3E224AD2ABA00A49C03 /* ComposeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D7BC3E124AD2ABA00A49C03 /* ComposeViewController.m */; };
+		8D7BC3E524AF093000A49C03 /* DetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D7BC3E424AF093000A49C03 /* DetailsViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -51,6 +52,8 @@
 		8D7BC3DB24AA916400A49C03 /* TweetCellTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TweetCellTableViewCell.m; sourceTree = "<group>"; };
 		8D7BC3E024AD2ABA00A49C03 /* ComposeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ComposeViewController.h; sourceTree = "<group>"; };
 		8D7BC3E124AD2ABA00A49C03 /* ComposeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ComposeViewController.m; sourceTree = "<group>"; };
+		8D7BC3E324AF093000A49C03 /* DetailsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailsViewController.h; sourceTree = "<group>"; };
+		8D7BC3E424AF093000A49C03 /* DetailsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailsViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -145,6 +148,8 @@
 				6AD2790820BCC04D0085BC29 /* TimelineViewController.m */,
 				8D7BC3E124AD2ABA00A49C03 /* ComposeViewController.m */,
 				8D7BC3E024AD2ABA00A49C03 /* ComposeViewController.h */,
+				8D7BC3E324AF093000A49C03 /* DetailsViewController.h */,
+				8D7BC3E424AF093000A49C03 /* DetailsViewController.m */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -290,6 +295,7 @@
 			files = (
 				8D7BC3DC24AA916400A49C03 /* TweetCellTableViewCell.m in Sources */,
 				6AD278F320BCA6020085BC29 /* BDBOAuth1SessionManager+SFAuthenticationSession.m in Sources */,
+				8D7BC3E524AF093000A49C03 /* DetailsViewController.m in Sources */,
 				8D7BC3D524AA810400A49C03 /* User.m in Sources */,
 				8D7BC3E224AD2ABA00A49C03 /* ComposeViewController.m in Sources */,
 				6AD278E820BC4B970085BC29 /* main.m in Sources */,
